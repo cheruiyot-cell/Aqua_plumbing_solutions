@@ -1,0 +1,208 @@
+/* ============================================
+   AQUA PLUMBING SOLUTIONS - RESPONSIVE STYLES
+   Version: 1.0
+   ============================================ */
+
+/* Large Desktops */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* Tablets & Small Desktops */
+@media (max-width: 1024px) {
+    :root {
+        --spacing-xl: 5rem;
+        --spacing-lg: 3rem;
+    }
+    
+    .hero {
+        min-height: 70vh;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 4rem;
+        --spacing-lg: 2.5rem;
+        --spacing-md: 1.5rem;
+    }
+    
+    /* Mobile Navigation */
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-md);
+        z-index: 100;
+    }
+    
+    .nav-list.open {
+        display: flex;
+    }
+    
+    .nav-list li {
+        width: 100%;
+    }
+    
+    .nav-list a {
+        display: block;
+        padding: var(--spacing-sm) 0;
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding-left: var(--spacing-md);
+        display: none;
+    }
+    
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+    
+    .btn-nav-cta {
+        display: none;
+    }
+    
+    /* Mobile Bottom Bar */
+    .mobile-bottom-bar {
+        display: flex;
+    }
+    
+    .floating-whatsapp {
+        bottom: 70px;
+        right: 16px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Add padding to body for sticky bottom bar */
+    body {
+        padding-bottom: 60px;
+    }
+    
+    /* Hero */
+    .hero {
+        min-height: 60vh;
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-cta-group .btn {
+        width: 100%;
+    }
+    
+    /* Sections */
+    .trust-grid,
+    .services-grid,
+    .process-grid,
+    .testimonials-grid,
+    .coverage-grid,
+    .pricing-tiles {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .section-heading {
+        font-size: 1.75rem;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    :root {
+        --spacing-xl: 3rem;
+        --spacing-lg: 2rem;
+        --spacing-md: 1.25rem;
+    }
+    
+    .utility-bar-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.25rem;
+    }
+    
+    .utility-left,
+    .utility-right {
+        font-size: 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1.25rem;
+    }
+    
+    .logo-plumbing {
+        font-size: 0.6rem;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .btn-lg {
+        padding: 0.85rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .service-card,
+    .testimonial-card,
+    .coverage-card,
+    .pricing-tile,
+    .trust-item {
+        padding: var(--spacing-md);
+    }
+    
+    .process-number {
+        font-size: 2.5rem;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-alabaster: #f5f3f0;
+        --color-white: #ffffff;
+    }
+    
+    /* Keep light mode as default since brand is designed for light */
+}
