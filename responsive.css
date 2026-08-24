@@ -1,42 +1,89 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - RESPONSIVE STYLES
-   Version: 1.0
+   Version: 2.0 - Mobile First Enhanced
    ============================================ */
 
 /* Large Desktops */
 @media (min-width: 1440px) {
     .container {
-        max-width: 1320px;
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop & Small Laptops */
+@media (max-width: 1200px) {
+    :root {
+        --spacing-2xl: 6rem;
+        --spacing-xl: 4.5rem;
+    }
+    
+    .nav-list {
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-list a {
+        font-size: 0.9rem;
+    }
+    
+    .btn-nav-cta {
+        padding: 0.6rem 1.25rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 5.5vw, 4rem);
+    }
+    
+    .services-grid,
+    .trust-grid,
+    .testimonials-grid,
+    .coverage-grid,
+    .pricing-tiles,
+    .packages-grid,
+    .process-grid,
+    .problem-grid,
+    .urgency-grid,
+    .vision-grid,
+    .benefits-grid,
+    .area-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
 /* Tablets & Small Desktops */
 @media (max-width: 1024px) {
     :root {
-        --spacing-xl: 5rem;
+        --spacing-2xl: 5rem;
+        --spacing-xl: 4rem;
         --spacing-lg: 3rem;
     }
     
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
     .hero {
-        min-height: 70vh;
+        min-height: 80vh;
     }
     
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-}
-
-/* Tablets */
-@media (max-width: 768px) {
-    :root {
-        --spacing-xl: 4rem;
-        --spacing-lg: 2.5rem;
-        --spacing-md: 1.5rem;
+    .hero-title {
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
     }
     
-    /* Mobile Navigation */
-    .nav-toggle {
-        display: block;
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Navigation adjustments for tablet */
+    .main-nav {
+        gap: var(--spacing-sm);
     }
     
     .nav-list {
@@ -45,26 +92,39 @@
         top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--color-white);
+        background: var(--color-white);
         flex-direction: column;
         align-items: flex-start;
         padding: var(--spacing-md);
-        box-shadow: var(--shadow-md);
-        z-index: 100;
+        box-shadow: var(--shadow-lg);
+        z-index: var(--z-header);
+        border-top: 3px solid var(--color-gold);
+        max-height: 80vh;
+        overflow-y: auto;
     }
     
     .nav-list.open {
         display: flex;
     }
     
+    .nav-toggle {
+        display: block;
+    }
+    
     .nav-list li {
         width: 100%;
+        border-bottom: 1px solid var(--color-light-grey);
+    }
+    
+    .nav-list li:last-child {
+        border-bottom: none;
     }
     
     .nav-list a {
         display: block;
         padding: var(--spacing-sm) 0;
         width: 100%;
+        font-size: 1rem;
     }
     
     .dropdown-menu {
@@ -75,14 +135,74 @@
         box-shadow: none;
         padding-left: var(--spacing-md);
         display: none;
+        border: none;
+        background: var(--color-alabaster);
     }
     
     .dropdown.open .dropdown-menu {
         display: block;
     }
     
+    .dropdown-toggle {
+        width: 100%;
+        padding: var(--spacing-sm) 0;
+        justify-content: space-between;
+    }
+    
     .btn-nav-cta {
         display: none;
+    }
+    
+    /* Footer adjustments */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    :root {
+        --spacing-2xl: 4rem;
+        --spacing-xl: 3rem;
+        --spacing-lg: 2.5rem;
+        --spacing-md: 1.5rem;
+    }
+    
+    body {
+        padding-bottom: 70px; /* Space for mobile bottom bar */
+        font-size: 15px;
+    }
+    
+    /* Utility Bar */
+    .utility-bar-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .utility-left,
+    .utility-right {
+        font-size: 0.85rem;
+    }
+    
+    /* Header */
+    .site-header {
+        position: sticky;
+        top: 0;
+    }
+    
+    .header-inner {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .logo-aqua {
+        font-size: 1.25rem;
     }
     
     /* Mobile Bottom Bar */
@@ -91,21 +211,34 @@
     }
     
     .floating-whatsapp {
-        bottom: 70px;
+        bottom: 80px;
         right: 16px;
-        width: 50px;
-        height: 50px;
+        width: 56px;
+        height: 56px;
     }
     
-    /* Add padding to body for sticky bottom bar */
-    body {
-        padding-bottom: 60px;
+    .floating-whatsapp span {
+        display: none;
+    }
+    
+    .floating-whatsapp:hover span {
+        display: none;
     }
     
     /* Hero */
     .hero {
-        min-height: 60vh;
+        min-height: 70vh;
         padding: var(--spacing-lg) 0;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 7vw, 3rem);
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 var(--spacing-sm);
     }
     
     .hero-cta-group {
@@ -118,52 +251,181 @@
     
     .hero-cta-group .btn {
         width: 100%;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .hero-eyebrow {
+        font-size: 0.8rem;
+        padding: 0.5rem 1.5rem;
     }
     
     /* Sections */
+    .section-heading {
+        font-size: 1.75rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .section-subheading {
+        font-size: 1rem;
+        padding: 0 var(--spacing-sm);
+        line-height: 1.7;
+    }
+    
+    /* Grids */
     .trust-grid,
     .services-grid,
     .process-grid,
     .testimonials-grid,
     .coverage-grid,
-    .pricing-tiles {
+    .pricing-tiles,
+    .packages-grid,
+    .problem-grid,
+    .urgency-grid,
+    .vision-grid,
+    .benefits-grid,
+    .area-grid,
+    .service-list-grid,
+    .comparison-table-wrapper,
+    .pricing-table-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Cards */
+    .service-card,
+    .testimonial-card,
+    .coverage-card,
+    .pricing-tile,
+    .trust-item,
+    .package-card,
+    .problem-card,
+    .urgency-card,
+    .vision-card,
+    .benefits-column,
+    .area-column,
+    .service-list {
+        padding: var(--spacing-md);
+        border-radius: var(--radius-lg);
+    }
+    
+    .process-number {
+        font-size: 3rem;
+    }
+    
+    /* Form */
+    .contact-form {
+        padding: var(--spacing-md);
+        border-radius: var(--radius-lg);
+    }
+    
+    .form-row {
         grid-template-columns: 1fr;
     }
     
+    /* Footer */
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        text-align: center;
     }
     
-    .section-heading {
-        font-size: 1.75rem;
+    .footer-column {
+        text-align: center;
+    }
+    
+    .footer-links li {
+        display: block;
+    }
+    
+    .footer-bottom {
+        margin-top: var(--spacing-md);
+    }
+    
+    /* Tables */
+    .comparison-table,
+    .pricing-table {
+        font-size: 0.9rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td,
+    .pricing-table th,
+    .pricing-table td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    /* Legal Sections */
+    .legal-section {
+        padding: var(--spacing-md);
+    }
+    
+    /* Package Cards */
+    .package-card.featured {
+        transform: none;
+    }
+    
+    .package-card.featured:hover {
+        transform: translateY(-4px);
+    }
+    
+    /* Floating WhatsApp */
+    .floating-whatsapp {
+        width: 52px;
+        height: 52px;
+    }
+    
+    .floating-whatsapp svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Mobile Bottom Bar */
+    .mobile-bottom-btn {
+        padding: 0.9rem var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+    
+    /* Emergency section */
+    .emergency-strip {
+        padding: var(--spacing-xl) 0;
     }
 }
 
 /* Mobile Phones */
 @media (max-width: 480px) {
     :root {
-        --spacing-xl: 3rem;
+        --spacing-2xl: 3rem;
+        --spacing-xl: 2.5rem;
         --spacing-lg: 2rem;
         --spacing-md: 1.25rem;
+        --spacing-sm: 0.75rem;
     }
     
-    .utility-bar-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.25rem;
+    body {
+        font-size: 14px;
     }
     
-    .utility-left,
-    .utility-right {
+    .utility-bar {
         font-size: 0.75rem;
+        padding: 0.5rem 0;
     }
     
     .logo {
         font-size: 1.25rem;
     }
     
+    .logo-aqua {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+    
     .logo-plumbing {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .hero {
+        min-height: 60vh;
     }
     
     .hero-title {
@@ -171,38 +433,251 @@
     }
     
     .hero-subtitle {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
     }
     
     .btn-lg {
-        padding: 0.85rem 1.5rem;
-        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
     }
     
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
+    .btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
     
+    .trust-item,
     .service-card,
     .testimonial-card,
     .coverage-card,
     .pricing-tile,
-    .trust-item {
-        padding: var(--spacing-md);
+    .package-card,
+    .problem-card,
+    .urgency-card,
+    .vision-card,
+    .benefits-column,
+    .area-column,
+    .service-list {
+        padding: var(--spacing-sm);
+        border-radius: var(--radius-md);
+    }
+    
+    .trust-icon,
+    .service-card-icon,
+    .problem-icon,
+    .vision-icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-xs);
     }
     
     .process-number {
         font-size: 2.5rem;
+    }
+    
+    .process-step h3 {
+        font-size: 1.1rem;
+    }
+    
+    .process-step p {
+        font-size: 0.9rem;
+    }
+    
+    .testimonial-quote {
+        font-size: 0.95rem;
+    }
+    
+    .pricing-price {
+        font-size: 2rem;
+    }
+    
+    .comparison-table,
+    .pricing-table {
+        min-width: 400px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td,
+    .pricing-table th,
+    .pricing-table td {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.9rem;
+    }
+    
+    .contact-form {
+        padding: var(--spacing-sm);
+        border-radius: var(--radius-md);
+    }
+    
+    /* Ensure text visibility on mobile */
+    .section-subheading,
+    .promise-intro,
+    .final-cta-subtitle,
+    .trust-item p,
+    .service-card p,
+    .testimonial-quote,
+    .coverage-card p,
+    .problem-card p,
+    .urgency-card p,
+    .vision-card p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+    
+    .mobile-bottom-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        display: flex;
+        background: var(--color-white);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mobile-bottom-btn {
+        flex: 1;
+        padding: 0.9rem 0.5rem;
+        font-size: 0.8rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+    
+    .floating-whatsapp {
+        bottom: 70px;
+        right: 12px;
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    }
+}
+
+/* Very Small Devices */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 0.7rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-lg {
+        padding: 0.85rem 1.25rem;
+    }
+    
+    .trust-icon,
+    .service-card-icon,
+    .problem-icon,
+    .vision-icon {
+        font-size: 2rem;
+    }
+    
+    .trust-item h3,
+    .service-card h3,
+    .coverage-card h3,
+    .problem-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .section-heading {
+        font-size: 1.5rem;
     }
 }
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-alabaster: #f5f3f0;
-        --color-white: #ffffff;
+        --color-alabaster: #1a1d20;
+        --color-white: #2d3436;
+        --color-light-grey: #40484c;
+        --color-medium-grey: #9ca3af;
     }
     
-    /* Keep light mode as default since brand is designed for light */
+    body {
+        background-color: var(--color-alabaster);
+    }
+    
+    .site-header {
+        background-color: rgba(45, 52, 54, 0.95);
+    }
+    
+    .trust-item,
+    .service-card,
+    .testimonial-card,
+    .coverage-card,
+    .pricing-tile,
+    .package-card,
+    .problem-card,
+    .urgency-card,
+    .vision-card,
+    .benefits-column,
+    .area-column,
+    .service-list,
+    .legal-section {
+        background: #2d3436;
+        border-color: #40484c;
+    }
+    
+    .trust-item h3,
+    .service-card h3,
+    .testimonial-name,
+    .coverage-card h3,
+    .pricing-tile h3,
+    .problem-card h3,
+    .urgency-card h3,
+    .vision-card h3,
+    .benefits-column h3,
+    .area-column h3,
+    .legal-section h2 {
+        color: #e5e5e5;
+    }
+    
+    .trust-item p,
+    .service-card p,
+    .testimonial-quote,
+    .coverage-card p,
+    .problem-card p,
+    .urgency-card p,
+    .vision-card p,
+    .benefits-column p,
+    .area-column p,
+    .service-list li,
+    .legal-section p,
+    .legal-section ul li {
+        color: #9ca3af;
+    }
+    
+    .contact-form,
+    .faq-item {
+        background: #2d3436;
+        border-color: #40484c;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        background: #1a1d20;
+        border-color: #40484c;
+        color: #e5e5e5;
+    }
 }
