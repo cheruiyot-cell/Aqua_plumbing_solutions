@@ -7,30 +7,56 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/index.html", "destination": "/index.html" },
+    
     { "source": "/why-aqua", "destination": "/why-aqua.html" },
+    { "source": "/why-aqua/", "destination": "/why-aqua.html" },
     { "source": "/why-aqua.html", "destination": "/why-aqua.html" },
+    
     { "source": "/pricing", "destination": "/pricing.html" },
+    { "source": "/pricing/", "destination": "/pricing.html" },
     { "source": "/pricing.html", "destination": "/pricing.html" },
+    
     { "source": "/coverage-areas", "destination": "/coverage-areas.html" },
+    { "source": "/coverage-areas/", "destination": "/coverage-areas.html" },
     { "source": "/coverage-areas.html", "destination": "/coverage-areas.html" },
+    
     { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/contact/", "destination": "/contact.html" },
     { "source": "/contact.html", "destination": "/contact.html" },
+    
     { "source": "/faq", "destination": "/faq.html" },
+    { "source": "/faq/", "destination": "/faq.html" },
     { "source": "/faq.html", "destination": "/faq.html" },
+    
     { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+    { "source": "/privacy-policy/", "destination": "/privacy-policy.html" },
     { "source": "/privacy-policy.html", "destination": "/privacy-policy.html" },
+    
     { "source": "/terms-of-service", "destination": "/terms-of-service.html" },
+    { "source": "/terms-of-service/", "destination": "/terms-of-service.html" },
     { "source": "/terms-of-service.html", "destination": "/terms-of-service.html" },
+    
     { "source": "/emergency-plumbing", "destination": "/emergency-plumbing.html" },
+    { "source": "/emergency-plumbing/", "destination": "/emergency-plumbing.html" },
     { "source": "/emergency-plumbing.html", "destination": "/emergency-plumbing.html" },
+    
     { "source": "/bathroom-remodeling", "destination": "/bathroom-remodeling.html" },
+    { "source": "/bathroom-remodeling/", "destination": "/bathroom-remodeling.html" },
     { "source": "/bathroom-remodeling.html", "destination": "/bathroom-remodeling.html" },
+    
     { "source": "/boiler-installation", "destination": "/boiler-installation.html" },
+    { "source": "/boiler-installation/", "destination": "/boiler-installation.html" },
     { "source": "/boiler-installation.html", "destination": "/boiler-installation.html" },
+    
     { "source": "/water-treatment", "destination": "/water-treatment.html" },
+    { "source": "/water-treatment/", "destination": "/water-treatment.html" },
     { "source": "/water-treatment.html", "destination": "/water-treatment.html" },
+    
     { "source": "/leak-detection", "destination": "/leak-detection.html" },
-    { "source": "/leak-detection.html", "destination": "/leak-detection.html" }
+    { "source": "/leak-detection/", "destination": "/leak-detection.html" },
+    { "source": "/leak-detection.html", "destination": "/leak-detection.html" },
+    
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
@@ -39,8 +65,7 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
   ]
