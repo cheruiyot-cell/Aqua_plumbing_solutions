@@ -519,35 +519,51 @@ a:focus-visible {
     transition: all var(--transition-fast);
     border-radius: var(--radius-sm);
 }
-
-/* Hero Section - High Contrast */
+/* ========== HERO SECTION WITH IMAGE ========== */
 .hero {
     position: relative;
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 50%, var(--color-teal) 100%);
+    background: linear-gradient(
+        rgba(26, 29, 32, 0.7), 
+        rgba(26, 29, 32, 0.8), 
+        rgba(29, 78, 75, 0.9)
+    ), url('https://i.ibb.co/FM9YMMR/1787661732048.png') center/cover no-repeat;
     color: #FFFFFF;
     overflow: hidden;
 }
 
+/* Add this class for pages that want the image hero */
+.hero-with-image {
+    background: linear-gradient(
+        rgba(26, 29, 32, 0.7), 
+        rgba(26, 29, 32, 0.8), 
+        rgba(29, 78, 75, 0.9)
+    ), url('https://i.ibb.co/FM9YMMR/1787661732048.png') center/cover no-repeat;
+    position: relative;
+}
+
+/* Keep existing hero overlay */
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: rgba(26, 29, 32, 0.85);
 }
 
+/* Enhanced hero content */
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
     padding: var(--spacing-2xl) 0;
     width: 100%;
 }
 
+/* Enhanced hero eyebrow */
 .hero-eyebrow {
     display: inline-block;
-    background: rgba(200, 169, 106, 0.2);
+    background: rgba(26, 29, 32, 0.6);
     color: #FFFFFF;
     padding: 0.75rem 2rem;
     border-radius: var(--radius-full);
@@ -557,17 +573,20 @@ a:focus-visible {
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 1px solid var(--color-gold);
+    backdrop-filter: blur(4px);
 }
 
+/* Enhanced hero title */
 .hero-title {
     color: #FFFFFF;
     font-size: clamp(3rem, 7vw, 5rem);
     margin-bottom: var(--spacing-md);
     font-weight: 800;
     line-height: 1.1;
-    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.5);
 }
 
+/* Enhanced hero subtitle */
 .hero-subtitle {
     color: #FFFFFF;
     font-size: clamp(1.1rem, 2.5vw, 1.35rem);
@@ -575,39 +594,8 @@ a:focus-visible {
     margin: 0 auto var(--spacing-lg);
     line-height: 1.8;
     font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
-
-.hero-cta-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    align-items: center;
-    margin-bottom: var(--spacing-md);
-}
-
-.hero .btn-outline {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.hero .btn-outline:hover {
-    background-color: #FFFFFF;
-    color: var(--color-charcoal);
-    transform: translateY(-2px);
-}
-
-.hero-micro-copy {
-    color: var(--color-gold);
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: var(--spacing-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
 /* Trust Strip */
 .trust-strip {
     padding: var(--spacing-2xl) 0;
