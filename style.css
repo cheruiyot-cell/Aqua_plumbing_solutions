@@ -2288,3 +2288,254 @@ a:focus-visible {
         background: #FFFFFF;
     }
 }
+/* ============================================
+   ADDITIONAL STYLES - FIX INVISIBLE TEXTS
+   ============================================ */
+
+/* Page Hero - Used in service pages */
+.page-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    overflow: hidden;
+    isolation: isolate;
+    padding: var(--spacing-2xl) 0;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://i.ibb.co/N6YwnmGJ/wesley-caribe-Tt-N-obf-Wl-Gw-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: 1;
+}
+
+.page-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 42, 61, 0.92) 0%,
+        rgba(15, 42, 61, 0.72) 40%,
+        rgba(0, 128, 128, 0.85) 60%,
+        rgba(15, 42, 61, 0.95) 100%
+    );
+    z-index: 2;
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 3;
+    color: #FFFFFF;
+}
+
+.page-hero .hero-eyebrow {
+    display: inline-block;
+    background: rgba(15, 42, 61, 0.85);
+    color: #FFFFFF;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid var(--color-accent);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(15, 42, 61, 0.3);
+}
+
+.page-hero .hero-title {
+    color: #FFFFFF;
+    font-size: clamp(3rem, 7vw, 5rem);
+    margin-bottom: var(--spacing-md);
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 
+        2px 2px 4px rgba(15, 42, 61, 0.9),
+        4px 4px 8px rgba(15, 42, 61, 0.7),
+        0 0 20px rgba(15, 42, 61, 0.5);
+}
+
+.page-hero .hero-subtitle {
+    color: #FFFFFF;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.8;
+    font-weight: 400;
+    text-shadow: 
+        2px 2px 4px rgba(15, 42, 61, 0.9),
+        0 0 12px rgba(15, 42, 61, 0.6);
+}
+
+.page-hero .hero-micro-copy {
+    color: var(--hero-text-accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: var(--spacing-md);
+    text-shadow: 0 2px 4px rgba(15, 42, 61, 0.8);
+}
+
+.page-hero .hero-cta-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.page-hero .btn-gold {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-accent);
+}
+
+.page-hero .btn-gold:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-white);
+}
+
+/* Problem Section - Used in why-aqua.html */
+.problem-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--color-white);
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.problem-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-light-grey);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.problem-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.problem-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.problem-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.problem-card p {
+    color: var(--color-dark-grey);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Standard Section - Used in why-aqua.html */
+.standard-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--color-bg-light);
+}
+
+.standard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.standard-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-light-grey);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.standard-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.standard-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.standard-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.standard-card p {
+    color: var(--color-dark-grey);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Emergency Hero - Special styling for emergency page */
+.emergency-hero {
+    min-height: 80vh;
+}
+
+.emergency-hero::after {
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 42, 61, 0.95) 0%,
+        rgba(255, 59, 48, 0.7) 50%,
+        rgba(15, 42, 61, 0.95) 100%
+    );
+}
+
+/* Ensure all sections have visible text */
+.vision-section,
+.delay-section,
+.safety-section,
+.commercial-section,
+.maintenance-section {
+    padding: var(--spacing-2xl) 0;
+}
+
+/* Fix any potential invisible text in white sections */
+.section-heading,
+.section-subheading {
+    color: var(--color-primary);
+}
+
+/* Mobile fixes for hero */
+@media (max-width: 768px) {
+    .page-hero {
+        min-height: 80vh;
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .page-hero .hero-title {
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+    }
+    
+    .page-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
