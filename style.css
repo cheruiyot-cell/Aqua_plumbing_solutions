@@ -1879,7 +1879,85 @@ a:focus-visible {
     display: block;
     margin-bottom: 4px;
 }
+/* Fix at the end of the file - add these improvements */
 
+/* Hide mobile bottom bar on desktop MORE aggressively */
+@media (min-width: 769px) {
+    .mobile-bottom-bar {
+        display: none !important;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+/* Ensure content is not hidden behind mobile bottom bar */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 70px; /* Already exists, keep it */
+    }
+}
+
+/* Fix for very small screens - prevent horizontal scroll */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* Print styles - hide mobile elements */
+@media print {
+    .mobile-bottom-bar,
+    .floating-whatsapp,
+    .nav-toggle,
+    .hero-cta-group,
+    .final-cta-micro,
+    .form-section {
+        display: none !important;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visible states for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Ensure WhatsApp button doesn't overlap content on mobile */
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        bottom: 80px;
+        right: 12px;
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
 /* Area Detail Section */
 .area-detail.alt-bg {
     background: var(--color-white);
@@ -2078,4 +2156,4 @@ a:focus-visible {
         --color-gold-dark: #8B6914;
         --color-teal: #1A5C58;
     }
-}
+	}

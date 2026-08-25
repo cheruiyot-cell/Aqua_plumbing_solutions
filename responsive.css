@@ -640,3 +640,86 @@
         color: #000 !important;
     }
 }
+
+/* Add to the END of responsive.css */
+
+/* Critical fix: Ensure mobile nav works on all small screens */
+@media (max-width: 1024px) {
+    .main-nav {
+        position: relative;
+    }
+    
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        padding: 1rem;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .nav-list.open {
+        display: flex !important;
+        flex-direction: column;
+    }
+}
+
+/* Fix: Ensure dropdowns work on mobile */
+@media (max-width: 1024px) {
+    .dropdown-menu {
+        position: static !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding-left: 1.5rem;
+    }
+    
+    .dropdown.open .dropdown-menu {
+        display: block !important;
+    }
+    
+    .dropdown-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Fix: Mobile bottom bar should not have gap issues */
+.mobile-bottom-bar {
+    gap: 0;
+}
+
+@media (max-width: 768px) {
+    .mobile-bottom-btn {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Fix: Print styles should hide everything non-essential */
+@media print {
+    .utility-bar,
+    .site-header,
+    .mobile-bottom-bar,
+    .floating-whatsapp,
+    .hero-cta-group,
+    .final-cta,
+    .site-footer,
+    form {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        background: #fff;
+        color: #000;
+    }
+    
+    h1, h2, h3 {
+        color: #000;
+    }
+}
