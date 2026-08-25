@@ -1,6 +1,8 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - MAIN JAVASCRIPT
-   Version: 1.2.0 - Production Ready
+   Version: 2.0.0 - Production Ready
+   Handles Absolute Paths, Form Validation,
+   Navigation, and UI Interactions.
    ============================================ */
 
 'use strict';
@@ -8,6 +10,9 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Initialize Base URL Fix (Critical for Absolute Paths)
+    initBaseUrlFix();
+
     // Initialize all components
     initNavigation();
     initDropdowns();
@@ -16,7 +21,33 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQAccordion();
     initFormValidation();
     initSmoothScroll();
+    initPhoneCopy();
 });
+
+/**
+ * CRITICAL: Fix Base URL for Absolute Paths
+ * This function checks if the site is hosted in a subfolder (like localhost/mysite/)
+ * and dynamically updates the <base> tag so all absolute paths (/style.css) work.
+ */
+function initBaseUrlFix() {
+    // Get the current script path to determine the root
+    // This works even if the script is loaded from a subfolder
+    const scripts = document.getElementsByTagName('script');
+    const currentScript = scripts[scripts.length - 1];
+    const scriptPath = currentScript.src;
+    
+    // If the script is loaded from /main.js, we are at the root.
+    // If it's loaded from /subfolder/main.js, we need to adjust.
+    const basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
+    
+    // Check if we need to add a <base> tag
+    // Only add it if the script is NOT at the root (e.g., /main.js)
+    if (basePath !== window.location.origin + '/') {
+        const baseTag = document.createElement('base');
+        baseTag.href = basePath;
+        document.head.insertBefore(baseTag, document.head.firstChild);
+    }
+}
 
 /**
  * Mobile Navigation Toggle
@@ -396,3 +427,20 @@ function initPhoneCopy() {
 
 // Initialize phone copy on load
 document.addEventListener('DOMContentLoaded', initPhoneCopy);
+
+/**
+ * Handle 404 Errors Gracefully
+ * This is an additional safety measure.
+ * If a link points to a non-existent page (e.g., due to a typo),
+ * redirect the user to the homepage.
+ */
+function init404Redirect() {
+    // If the document title contains "404" or the page has a 404 status
+    // (in some environments), redirect to home.
+    if (document.title.includes('404')) {
+        window.location.href = '/index.html';
+    }
+}
+
+// Initialize 404 redirect
+document.addEventListener('DOMContentLoaded', init404Redirect);
