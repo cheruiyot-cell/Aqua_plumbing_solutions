@@ -1119,3 +1119,154 @@
         --color-teal: #1A5C58;
     }
 }
+/* ============================================
+   CRITICAL MENU VISIBILITY FIX
+   Place at the END of responsive.css
+   ============================================ */
+
+/* Mobile Menu - Guaranteed Display */
+@media (max-width: 1024px) {
+    /* Ensure nav-toggle button is visible */
+    #nav-toggle {
+        display: block !important;
+        position: relative;
+        z-index: 1001;
+        background: none !important;
+        border: none !important;
+        cursor: pointer;
+        padding: 10px;
+    }
+    
+    /* Ensure hamburger lines are visible */
+    #nav-toggle .hamburger {
+        display: block !important;
+        width: 24px !important;
+        height: 2px !important;
+        background-color: var(--color-charcoal, #1A1D20) !important;
+        margin: 5px 0 !important;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Menu list - Force full screen */
+    #nav-list {
+        display: none;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: var(--color-white, #FFFFFF) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        padding: 80px 24px 24px !important;
+        margin: 0 !important;
+        z-index: 1000 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        border: none !important;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        pointer-events: auto !important;
+    }
+    
+    /* When menu is open - Force display */
+    #nav-list.open {
+        display: flex !important;
+    }
+    
+    /* Menu items - Full width */
+    #nav-list > li {
+        width: 100% !important;
+        border-bottom: 1px solid var(--color-light-grey, #E5E5E5) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    #nav-list > li:last-child {
+        border-bottom: none !important;
+    }
+    
+    /* Menu links - Full width and visible */
+    #nav-list a {
+        display: block !important;
+        width: 100% !important;
+        padding: 16px 0 !important;
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        color: var(--color-charcoal, #1A1D20) !important;
+        text-decoration: none !important;
+        line-height: 1.5 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        background: transparent !important;
+    }
+    
+    /* Dropdowns */
+    .dropdown {
+        width: 100% !important;
+    }
+    
+    .dropdown-toggle {
+        width: 100% !important;
+        padding: 16px 0 !important;
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        color: var(--color-charcoal, #1A1D20) !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+    }
+    
+    .dropdown-menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        padding-left: 16px !important;
+        display: none !important;
+        border: none !important;
+        background: transparent !important;
+        width: 100% !important;
+    }
+    
+    .dropdown.open .dropdown-menu {
+        display: block !important;
+    }
+    
+    .dropdown-menu a {
+        padding: 12px 0 !important;
+        font-size: 1rem !important;
+        color: var(--color-medium-grey, #4B5563) !important;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+    #nav-list {
+        padding: 70px 16px 16px !important;
+    }
+    
+    #nav-list a {
+        font-size: 1rem !important;
+        padding: 14px 0 !important;
+    }
+    
+    .dropdown-toggle {
+        font-size: 1rem !important;
+        padding: 14px 0 !important;
+    }
+}
