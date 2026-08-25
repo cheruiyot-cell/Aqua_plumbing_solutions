@@ -1,7 +1,7 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - PREMIUM STYLESHEET
-   Version: 3.0.0 - Production Ready
-   Fixes: Text visibility, mobile readability, contrast
+   Version: 3.1.0 - Production Ready
+   Enhanced: Hero blend mode, text visibility, accessibility
    ============================================ */
 
 /* CSS Reset & Base Styles */
@@ -264,306 +264,62 @@ a:focus-visible {
     border-bottom-color: var(--color-gold);
 }
 
-/* Header */
-.site-header {
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: var(--z-header);
-    transition: all var(--transition-base);
-    border-bottom: 1px solid var(--color-light-grey);
-}
-
-.site-header.scrolled {
-    box-shadow: var(--shadow-md);
-    background-color: var(--color-white);
-}
-
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: var(--spacing-sm);
-    padding-bottom: var(--spacing-sm);
-}
-
-/* Logo - High Contrast */
-.logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.75rem;
-    color: var(--color-charcoal);
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-    text-decoration: none;
-}
-
-.logo-aqua {
-    color: var(--color-charcoal);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.logo-plumbing {
-    font-size: 0.7rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    color: var(--color-gold-dark);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 2px;
-}
-
-/* Navigation - High Contrast */
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: var(--spacing-md);
-    margin: 0;
-    padding: 0;
-}
-
-.nav-list a {
-    color: var(--color-charcoal);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: var(--spacing-xs) 0;
-    position: relative;
-    transition: color var(--transition-fast);
-    text-decoration: none;
-}
-
-.nav-list a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--color-gold);
-    transition: width var(--transition-base);
-    border-radius: var(--radius-sm);
-}
-
-.nav-list a:hover::after,
-.nav-list a.active::after {
-    width: 100%;
-}
-
-.nav-list a:hover,
-.nav-list a.active {
-    color: var(--color-gold-dark);
-}
-
-/* Dropdown */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
-    background: none;
-    border: none;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-charcoal);
-    cursor: pointer;
-    padding: var(--spacing-xs) 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color var(--transition-fast);
-}
-
-.dropdown-toggle:hover {
-    color: var(--color-gold-dark);
-}
-
-.dropdown-toggle .arrow {
-    font-size: 0.7rem;
-    transition: transform var(--transition-fast);
-}
-
-.dropdown-toggle:hover .arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--color-white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    min-width: 240px;
-    list-style: none;
-    padding: var(--spacing-xs) 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px) scale(0.98);
-    transition: all var(--transition-base);
-    z-index: var(--z-dropdown);
-    border: 1px solid var(--color-light-grey);
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: 0.9rem;
-    color: var(--color-charcoal);
-    transition: all var(--transition-fast);
-    font-weight: 500;
-}
-
-.dropdown-menu a:hover {
-    background: var(--color-alabaster);
-    color: var(--color-gold-dark);
-    padding-left: calc(var(--spacing-md) + 8px);
-}
-
-/* Buttons - High Contrast */
-.btn {
-    display: inline-block;
-    padding: 0.85rem 1.75rem;
-    border-radius: var(--radius-md);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all var(--transition-base);
-    border: 2px solid transparent;
-    text-align: center;
-    line-height: 1.4;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-gold {
-    background: var(--color-gold);
-    color: var(--color-charcoal);
-    border-color: var(--color-gold);
-    box-shadow: var(--shadow-gold);
-}
-
-.btn-gold:hover {
-    background: var(--color-gold-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(200, 169, 106, 0.4);
-    color: var(--color-charcoal);
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--color-charcoal);
-    border-color: var(--color-gold);
-    font-weight: 600;
-}
-
-.btn-outline:hover {
-    background-color: var(--color-gold);
-    color: var(--color-charcoal);
-    transform: translateY(-2px);
-}
-
-.btn-lg {
-    padding: 1.1rem 2.5rem;
-    font-size: 1.1rem;
-}
-
-.btn-sm {
-    padding: 0.6rem 1.25rem;
-    font-size: 0.9rem;
-}
-
-.btn-nav-cta {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    border-radius: var(--radius-full);
-}
-
-/* Nav Toggle (Mobile) */
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--spacing-xs);
-}
-
-.hamburger {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-charcoal);
-    margin: 5px 0;
-    transition: all var(--transition-fast);
-    border-radius: var(--radius-sm);
-}
-/* ========== HERO SECTION WITH IMAGE ========== */
+/* ============================================
+   ENHANCED HERO SECTION WITH BLEND MODE
+   ============================================ */
 .hero {
     position: relative;
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(
-        rgba(26, 29, 32, 0.7), 
-        rgba(26, 29, 32, 0.8), 
-        rgba(29, 78, 75, 0.9)
-    ), url('https://i.ibb.co/FM9YMMR/1787661732048.png') center/cover no-repeat;
+    background-color: var(--color-charcoal);
     color: #FFFFFF;
     overflow: hidden;
+    isolation: isolate;
 }
 
-/* Add this class for pages that want the image hero */
-.hero-with-image {
-    background: linear-gradient(
-        rgba(26, 29, 32, 0.7), 
-        rgba(26, 29, 32, 0.8), 
-        rgba(29, 78, 75, 0.9)
-    ), url('https://i.ibb.co/FM9YMMR/1787661732048.png') center/cover no-repeat;
-    position: relative;
-}
-
-/* Keep existing hero overlay */
-.hero-overlay {
+/* Background Image Layer */
+.hero::before {
+    content: '';
     position: absolute;
     inset: 0;
-    background: rgba(26, 29, 32, 0.85);
+    background-image: url('https://i.ibb.co/FM9YMMR/1787661732048.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    z-index: 1;
+    mix-blend-mode: luminosity;
 }
 
-/* Enhanced hero content */
+/* Gradient Overlay Layer */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(26, 29, 32, 0.85) 0%,
+        rgba(26, 29, 32, 0.75) 50%,
+        rgba(29, 78, 75, 0.9) 100%
+    );
+    z-index: 2;
+}
+
+/* Hero Content - Always Above Background */
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     padding: var(--spacing-2xl) 0;
     width: 100%;
+    color: #FFFFFF;
 }
 
-/* Enhanced hero eyebrow */
+/* Hero Text Elements - Forced Visible */
 .hero-eyebrow {
     display: inline-block;
-    background: rgba(26, 29, 32, 0.6);
+    background: rgba(26, 29, 32, 0.8);
     color: #FFFFFF;
     padding: 0.75rem 2rem;
     border-radius: var(--radius-full);
@@ -572,21 +328,23 @@ a:focus-visible {
     margin-bottom: var(--spacing-md);
     letter-spacing: 2px;
     text-transform: uppercase;
-    border: 1px solid var(--color-gold);
-    backdrop-filter: blur(4px);
+    border: 2px solid var(--color-gold);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Enhanced hero title */
 .hero-title {
     color: #FFFFFF;
     font-size: clamp(3rem, 7vw, 5rem);
     margin-bottom: var(--spacing-md);
     font-weight: 800;
     line-height: 1.1;
-    text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.5);
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        4px 4px 8px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Enhanced hero subtitle */
 .hero-subtitle {
     color: #FFFFFF;
     font-size: clamp(1.1rem, 2.5vw, 1.35rem);
@@ -594,8 +352,97 @@ a:focus-visible {
     margin: 0 auto var(--spacing-lg);
     line-height: 1.8;
     font-weight: 400;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 12px rgba(0, 0, 0, 0.6);
 }
+
+/* Hero Badges */
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(26, 29, 32, 0.7);
+    border: 1px solid rgba(200, 169, 106, 0.5);
+    border-radius: var(--radius-full);
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-response-time {
+    color: var(--color-gold-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: var(--spacing-xs);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Alternative Hero Class for Pages */
+.hero-with-image {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-charcoal);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero-with-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://i.ibb.co/FM9YMMR/1787661732048.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+.hero-with-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(26, 29, 32, 0.9) 0%,
+        rgba(26, 29, 32, 0.8) 50%,
+        rgba(29, 78, 75, 0.95) 100%
+    );
+    z-index: 2;
+}
+
+/* Ensure text containers have z-index */
+.hero-with-image .hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+/* Fallback if background fails */
+.hero, .hero-with-image {
+    background-color: var(--color-charcoal);
+}
+
+/* ============================================
+   END HERO SECTION
+   ============================================ */
+
 /* Trust Strip */
 .trust-strip {
     padding: var(--spacing-2xl) 0;
@@ -1968,75 +1815,7 @@ a:focus-visible {
     font-size: 1.1rem;
 }
 
-/* Mobile Menu Overlay Fix */
-@media (max-width: 1024px) {
-    .main-nav {
-        position: relative;
-    }
-    
-    .nav-list {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--color-white);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        padding: 1rem;
-        max-height: 80vh;
-        overflow-y: auto;
-        display: none;
-        border-top: 3px solid var(--color-gold);
-    }
-    
-    .nav-list.open {
-        display: flex !important;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 1024px) {
-    .dropdown-menu {
-        position: static !important;
-        box-shadow: none !important;
-        background: transparent !important;
-        padding-left: 1.5rem;
-    }
-    
-    .dropdown.open .dropdown-menu {
-        display: block !important;
-    }
-    
-    .dropdown-toggle {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: var(--spacing-sm) 0;
-        justify-content: space-between;
-    }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-    :root {
-        --color-gold: #A8823E;
-        --color-gold-dark: #8B6914;
-        --color-teal: #1A5C58;
-    }
-}
-/* ========== URGENCY BANNER ========== */
+/* Urgency Banner */
 .urgency-banner {
     background: linear-gradient(135deg, #DC2626, #B91C1C);
     color: #FFFFFF;
@@ -2066,39 +1845,7 @@ a:focus-visible {
     color: #FFFFFF;
 }
 
-/* ========== HERO BADGES ========== */
-.hero-badges {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: var(--radius-full);
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    backdrop-filter: blur(10px);
-}
-
-.hero-response-time {
-    color: var(--color-gold-light);
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-top: var(--spacing-xs);
-}
-
-/* ========== PRICING GUARANTEE ========== */
+/* Pricing Guarantee */
 .pricing-guarantee {
     text-align: center;
     color: var(--color-teal);
@@ -2113,7 +1860,7 @@ a:focus-visible {
     width: 100%;
 }
 
-/* ========== COMMERCIAL BENEFITS ========== */
+/* Commercial Benefits */
 .commercial-benefits {
     max-width: 700px;
     margin: 0 auto var(--spacing-xl);
@@ -2123,7 +1870,7 @@ a:focus-visible {
     text-align: left;
 }
 
-/* ========== MAINTENANCE SECTION ========== */
+/* Maintenance Section */
 .maintenance-section {
     background: var(--color-teal);
     padding: var(--spacing-2xl) 0;
@@ -2145,7 +1892,305 @@ a:focus-visible {
     text-align: left;
 }
 
-/* ========== MOBILE ADJUSTMENTS ========== */
+/* Buttons - High Contrast */
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+    text-align: center;
+    line-height: 1.4;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gold {
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+    background: var(--color-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(200, 169, 106, 0.4);
+    color: var(--color-charcoal);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+    font-weight: 600;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-gold);
+    color: var(--color-charcoal);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-sm {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+}
+
+.btn-nav-cta {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-radius: var(--radius-full);
+}
+
+/* Header & Navigation */
+.site-header {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    transition: all var(--transition-base);
+    border-bottom: 1px solid var(--color-light-grey);
+}
+
+.site-header.scrolled {
+    box-shadow: var(--shadow-md);
+    background-color: var(--color-white);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--color-charcoal);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    text-decoration: none;
+}
+
+.logo-aqua {
+    color: var(--color-charcoal);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.logo-plumbing {
+    font-size: 0.7rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-gold-dark);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: var(--spacing-md);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    color: var(--color-charcoal);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    transition: color var(--transition-fast);
+    text-decoration: none;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: width var(--transition-base);
+    border-radius: var(--radius-sm);
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after {
+    width: 100%;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    color: var(--color-gold-dark);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    padding: var(--spacing-xs) 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition-fast);
+}
+
+.dropdown-toggle:hover {
+    color: var(--color-gold-dark);
+}
+
+.dropdown-toggle .arrow {
+    font-size: 0.7rem;
+    transition: transform var(--transition-fast);
+}
+
+.dropdown-toggle:hover .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    min-width: 240px;
+    list-style: none;
+    padding: var(--spacing-xs) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.98);
+    transition: all var(--transition-base);
+    z-index: var(--z-dropdown);
+    border: 1px solid var(--color-light-grey);
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    transition: all var(--transition-fast);
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background: var(--color-alabaster);
+    color: var(--color-gold-dark);
+    padding-left: calc(var(--spacing-md) + 8px);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-charcoal);
+    margin: 5px 0;
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-sm);
+}
+
+/* Mobile Menu Overlay Fix */
+@media (max-width: 1024px) {
+    .main-nav {
+        position: relative;
+    }
+    
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        padding: 1rem;
+        max-height: 80vh;
+        overflow-y: auto;
+        display: none;
+        border-top: 3px solid var(--color-gold);
+    }
+    
+    .nav-list.open {
+        display: flex !important;
+        flex-direction: column;
+    }
+    
+    .dropdown-menu {
+        position: static !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding-left: 1.5rem;
+    }
+    
+    .dropdown.open .dropdown-menu {
+        display: block !important;
+    }
+    
+    .dropdown-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: var(--spacing-sm) 0;
+        justify-content: space-between;
+    }
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .urgency-banner {
         font-size: 0.8rem;
@@ -2164,5 +2209,26 @@ a:focus-visible {
     
     .pricing-guarantee {
         font-size: 0.95rem;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --color-gold: #A8823E;
+        --color-gold-dark: #8B6914;
+        --color-teal: #1A5C58;
     }
 }
