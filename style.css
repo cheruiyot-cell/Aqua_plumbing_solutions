@@ -1,7 +1,7 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - PREMIUM STYLESHEET
-   Version: 3.2.0 - Production Ready
-   Enhanced: Hero blend mode, text visibility, accessibility
+   Version: 3.3.0 - Production Ready
+   Enhanced: Hero images 100% visible, text overlays
    ============================================ */
 
 /* CSS Reset & Base Styles */
@@ -265,7 +265,7 @@ a:focus-visible {
 }
 
 /* ============================================
-   ENHANCED HERO SECTION WITH BLEND MODE
+   ENHANCED HERO SECTION - FULL VISIBILITY IMAGE
    ============================================ */
 .hero {
     position: relative;
@@ -278,7 +278,7 @@ a:focus-visible {
     isolation: isolate;
 }
 
-/* Background Image Layer */
+/* Background Image Layer - 100% Visible */
 .hero::before {
     content: '';
     position: absolute;
@@ -287,20 +287,21 @@ a:focus-visible {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.6;
+    opacity: 1;
     z-index: 1;
-    mix-blend-mode: luminosity;
+    /* Removed mix-blend-mode to keep image fully visible */
 }
 
-/* Gradient Overlay Layer */
+/* Gradient Overlay Layer - Adjusted for text readability */
 .hero::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        135deg,
+        to bottom,
         rgba(26, 29, 32, 0.85) 0%,
-        rgba(26, 29, 32, 0.75) 50%,
+        rgba(26, 29, 32, 0.65) 40%,
+        rgba(26, 29, 32, 0.75) 60%,
         rgba(29, 78, 75, 0.9) 100%
     );
     z-index: 2;
@@ -319,7 +320,7 @@ a:focus-visible {
 /* Hero Text Elements - Forced Visible */
 .hero-eyebrow {
     display: inline-block;
-    background: rgba(26, 29, 32, 0.8);
+    background: rgba(26, 29, 32, 0.85);
     color: #FFFFFF;
     padding: 0.75rem 2rem;
     border-radius: var(--radius-full);
@@ -372,7 +373,7 @@ a:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(26, 29, 32, 0.7);
+    background: rgba(26, 29, 32, 0.75);
     border: 1px solid rgba(200, 169, 106, 0.5);
     border-radius: var(--radius-full);
     padding: 0.4rem 1rem;
@@ -410,9 +411,9 @@ a:focus-visible {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.5;
+    opacity: 1;
     z-index: 1;
-    mix-blend-mode: screen;
+    /* Removed mix-blend-mode to keep image fully visible */
 }
 
 .hero-with-image::after {
@@ -422,8 +423,8 @@ a:focus-visible {
     background: linear-gradient(
         to bottom,
         rgba(26, 29, 32, 0.9) 0%,
-        rgba(26, 29, 32, 0.8) 50%,
-        rgba(29, 78, 75, 0.95) 100%
+        rgba(26, 29, 32, 0.7) 50%,
+        rgba(29, 78, 75, 0.85) 100%
     );
     z-index: 2;
 }
