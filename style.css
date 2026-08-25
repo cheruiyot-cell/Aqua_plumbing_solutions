@@ -2539,3 +2539,90 @@ a:focus-visible {
         font-size: 1.1rem;
     }
 }
+/* ============================================
+   FIX: FOR DISCERNING CLIENTS - WHITE TEXT VISIBILITY
+   ============================================ */
+
+/* Maintenance Section - Ensure dark teal background */
+.maintenance-section {
+    background: var(--color-secondary) !important;
+}
+
+/* Commercial Section - Ensure dark navy background */
+.commercial-section {
+    background: var(--color-primary) !important;
+}
+
+/* Promise List in Dark Sections - Force text color */
+.maintenance-section .promise-list li,
+.commercial-section .promise-list li {
+    color: #FFFFFF !important;
+}
+
+/* Hero Eyebrow in Dark Sections - Force visible */
+.maintenance-section .hero-eyebrow,
+.commercial-section .hero-eyebrow {
+    background: rgba(15, 42, 61, 0.85) !important;
+    color: #FFFFFF !important;
+    border-color: var(--color-accent) !important;
+}
+
+/* Promise Intro in Dark Sections */
+.maintenance-section .promise-intro,
+.commercial-section .promise-intro {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Section Headings in Dark Sections */
+.maintenance-section .section-heading.text-light,
+.commercial-section .section-heading.text-light {
+    color: #FFFFFF !important;
+}
+
+/* Emergency Strip - Ensure dark gradient background */
+.emergency-strip {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%) !important;
+}
+
+/* Safety & Delay Sections - Ensure dark background */
+.safety-section,
+.delay-section {
+    background: var(--color-primary) !important;
+}
+
+/* Ensure all white text elements have dark backgrounds */
+.hero-eyebrow,
+.promise-list strong {
+    color: var(--color-accent-light) !important;
+}
+/* ============================================
+   UNIVERSAL DARK SECTION PROTECTION
+   ============================================ */
+.maintenance-section,
+.commercial-section,
+.emergency-strip,
+.safety-section,
+.delay-section,
+.promise-section {
+    background-color: var(--color-primary) !important;
+}
+
+.maintenance-section .text-light,
+.commercial-section .text-light,
+.emergency-strip .text-light,
+.safety-section .text-light,
+.delay-section .text-light,
+.promise-section .text-light {
+    color: #FFFFFF !important;
+}
+
+/* Fallback: Any section with .text-light must have dark bg */
+section:has(.text-light) {
+    background-color: var(--color-primary) !important;
+}
+/* ============================================
+   REMOVE WHATSAPP FLOATING BUTTON
+   ============================================ */
+.floating-whatsapp {
+    display: none !important;
+}
