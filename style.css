@@ -1,6 +1,6 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - PREMIUM STYLESHEET
-   Version: 2.0 - Production Ready
+   Version: 2.1.0 - Production Ready
    ============================================ */
 
 /* CSS Reset & Base Styles */
@@ -11,7 +11,7 @@
 }
 
 :root {
-    /* Premium Color Palette */
+    /* Premium Color Palette - Fixed */
     --color-charcoal: #1A1D20;
     --color-gold: #C8A96A;
     --color-gold-light: #D4B87E;
@@ -135,8 +135,9 @@ p {
     background-clip: text;
 }
 
+/* FIXED: Use literal white to prevent dark mode override */
 .text-light {
-    color: var(--color-white) !important;
+    color: #FFFFFF !important;
 }
 
 .text-muted {
@@ -238,7 +239,7 @@ a:focus-visible {
 
 .utility-left,
 .utility-right {
-    color: var(--color-white);
+    color: #FFFFFF;
 }
 
 .utility-bar a {
@@ -535,7 +536,7 @@ a:focus-visible {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 50%, var(--color-teal) 100%);
     background-size: cover;
     background-position: center;
-    color: var(--color-white);
+    color: #FFFFFF;
     overflow: hidden;
 }
 
@@ -579,7 +580,7 @@ a:focus-visible {
 }
 
 .hero-title {
-    color: var(--color-white);
+    color: #FFFFFF;
     font-size: clamp(3rem, 7vw, 5rem);
     margin-bottom: var(--spacing-md);
     font-weight: 700;
@@ -605,7 +606,7 @@ a:focus-visible {
 }
 
 .hero .btn-outline {
-    color: var(--color-white);
+    color: #FFFFFF;
     border-color: rgba(255, 255, 255, 0.8);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -971,7 +972,7 @@ a:focus-visible {
 .promise-section {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 100%);
     padding: var(--spacing-2xl) 0;
-    color: var(--color-alabaster);
+    color: #FFFFFF;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1134,7 +1135,7 @@ a:focus-visible {
 /* Footer - Premium */
 .site-footer {
     background: linear-gradient(180deg, var(--color-charcoal) 0%, #0d0f11 100%);
-    color: var(--color-alabaster);
+    color: #F8F6F3;
     padding: var(--spacing-2xl) 0 var(--spacing-md);
 }
 
@@ -1147,7 +1148,7 @@ a:focus-visible {
 
 .footer-logo {
     font-family: var(--font-display);
-    color: var(--color-white);
+    color: #FFFFFF;
     font-size: 1.75rem;
     margin-bottom: var(--spacing-xs);
     font-weight: 700;
@@ -1220,7 +1221,7 @@ a:focus-visible {
     bottom: 100px;
     right: 24px;
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    color: var(--color-white);
+    color: #FFFFFF;
     width: 64px;
     height: 64px;
     border-radius: var(--radius-full);
@@ -1236,7 +1237,7 @@ a:focus-visible {
 .floating-whatsapp:hover {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
-    color: var(--color-white);
+    color: #FFFFFF;
 }
 
 .floating-whatsapp span {
@@ -1280,7 +1281,7 @@ a:focus-visible {
 
 .mobile-call-btn {
     background-color: var(--color-charcoal);
-    color: var(--color-white);
+    color: #FFFFFF;
 }
 
 .mobile-call-btn:hover {
@@ -1289,7 +1290,7 @@ a:focus-visible {
 
 .mobile-whatsapp-btn {
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    color: var(--color-white);
+    color: #FFFFFF;
 }
 
 .mobile-whatsapp-btn:hover {
@@ -1513,7 +1514,7 @@ a:focus-visible {
 
 .form-success {
     background: linear-gradient(135deg, #10B981, #059669);
-    color: var(--color-white);
+    color: #FFFFFF;
     padding: var(--spacing-sm);
     border-radius: var(--radius-md);
     margin-top: var(--spacing-md);
@@ -1533,6 +1534,18 @@ a:focus-visible {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 100%);
     padding: var(--spacing-xl) 0;
     text-align: center;
+}
+
+.legal-hero .hero-title {
+    color: #FFFFFF;
+}
+
+.legal-hero .hero-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.legal-hero .hero-micro-copy {
+    color: var(--color-gold);
 }
 
 .legal-content {
@@ -1637,7 +1650,7 @@ a:focus-visible {
 .comparison-table th,
 .pricing-table th {
     background: linear-gradient(135deg, var(--color-charcoal), #2d3436);
-    color: var(--color-white);
+    color: #FFFFFF;
     font-weight: 600;
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -1939,6 +1952,7 @@ a:focus-visible {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 100%);
     padding: var(--spacing-2xl) 0;
     text-align: center;
+    color: #FFFFFF;
 }
 
 .delay-list {
@@ -1972,6 +1986,7 @@ a:focus-visible {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-teal) 100%);
     padding: var(--spacing-2xl) 0;
     text-align: center;
+    color: #FFFFFF;
 }
 
 /* Commercial Section */
@@ -1979,6 +1994,7 @@ a:focus-visible {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 100%);
     padding: var(--spacing-2xl) 0;
     text-align: center;
+    color: #FFFFFF;
 }
 
 /* Form Section */
@@ -2052,5 +2068,14 @@ a:focus-visible {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --color-gold: #A8823E;
+        --color-gold-dark: #8B6914;
+        --color-teal: #1A5C58;
     }
 }

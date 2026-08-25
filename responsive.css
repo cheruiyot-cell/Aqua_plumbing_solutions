@@ -1,6 +1,6 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - RESPONSIVE STYLES
-   Version: 2.0 - Mobile First Enhanced
+   Version: 2.1.0 - Production Ready
    ============================================ */
 
 /* Large Desktops */
@@ -284,9 +284,7 @@
     .vision-grid,
     .benefits-grid,
     .area-grid,
-    .service-list-grid,
-    .comparison-table-wrapper,
-    .pricing-table-wrapper {
+    .service-list-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
@@ -341,7 +339,13 @@
         margin-top: var(--spacing-md);
     }
     
-    /* Tables */
+    /* Tables - Ensure scrollable */
+    .comparison-table-wrapper,
+    .pricing-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     .comparison-table,
     .pricing-table {
         font-size: 0.9rem;
@@ -604,80 +608,35 @@
     }
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-alabaster: #1a1d20;
-        --color-white: #2d3436;
-        --color-light-grey: #40484c;
-        --color-medium-grey: #9ca3af;
+/* Print Styles */
+@media print {
+    .utility-bar,
+    .floating-whatsapp,
+    .mobile-bottom-bar,
+    .site-header,
+    .site-footer {
+        display: none !important;
     }
     
     body {
-        background-color: var(--color-alabaster);
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
     }
     
-    .site-header {
-        background-color: rgba(45, 52, 54, 0.95);
+    .hero,
+    .page-hero {
+        background: #fff !important;
+        color: #000 !important;
+        min-height: auto;
+        padding: 2rem 0;
     }
     
-    .trust-item,
-    .service-card,
-    .testimonial-card,
-    .coverage-card,
-    .pricing-tile,
-    .package-card,
-    .problem-card,
-    .urgency-card,
-    .vision-card,
-    .benefits-column,
-    .area-column,
-    .service-list,
-    .legal-section {
-        background: #2d3436;
-        border-color: #40484c;
-    }
-    
-    .trust-item h3,
-    .service-card h3,
-    .testimonial-name,
-    .coverage-card h3,
-    .pricing-tile h3,
-    .problem-card h3,
-    .urgency-card h3,
-    .vision-card h3,
-    .benefits-column h3,
-    .area-column h3,
-    .legal-section h2 {
-        color: #e5e5e5;
-    }
-    
-    .trust-item p,
-    .service-card p,
-    .testimonial-quote,
-    .coverage-card p,
-    .problem-card p,
-    .urgency-card p,
-    .vision-card p,
-    .benefits-column p,
-    .area-column p,
-    .service-list li,
-    .legal-section p,
-    .legal-section ul li {
-        color: #9ca3af;
-    }
-    
-    .contact-form,
-    .faq-item {
-        background: #2d3436;
-        border-color: #40484c;
-    }
-    
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        background: #1a1d20;
-        border-color: #40484c;
-        color: #e5e5e5;
+    .hero-title,
+    .hero-subtitle,
+    .hero-eyebrow,
+    .hero-micro-copy {
+        color: #000 !important;
     }
 }

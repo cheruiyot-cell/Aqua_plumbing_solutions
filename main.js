@@ -1,6 +1,6 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - MAIN JAVASCRIPT
-   Version: 1.0
+   Version: 1.2.0 - Production Ready
    ============================================ */
 
 'use strict';
@@ -65,7 +65,7 @@ function initNavigation() {
 }
 
 /**
- * Dropdown Menus (Mobile)
+ * Dropdown Menus (Mobile & Desktop)
  */
 function initDropdowns() {
     const dropdowns = document.querySelectorAll('.dropdown');
@@ -84,8 +84,10 @@ function initDropdowns() {
             dropdowns.forEach(otherDropdown => {
                 if (otherDropdown !== dropdown) {
                     otherDropdown.classList.remove('open');
-                    otherDropdown.querySelector('.dropdown-toggle')
-                        .setAttribute('aria-expanded', 'false');
+                    const otherToggle = otherDropdown.querySelector('.dropdown-toggle');
+                    if (otherToggle) {
+                        otherToggle.setAttribute('aria-expanded', 'false');
+                    }
                 }
             });
             
@@ -115,9 +117,6 @@ function initScrollEffects() {
     
     if (!header) return;
     
-    let lastScroll = 0;
-    let scrollTimeout;
-    
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
         
@@ -138,14 +137,6 @@ function initScrollEffects() {
                 floatingWhatsApp.style.pointerEvents = 'none';
             }
         }
-        
-        lastScroll = currentScroll;
-        
-        // Debounce
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function() {
-            // Any additional scroll handling
-        }, 100);
     }, { passive: true });
     
     // Initial state
@@ -213,17 +204,21 @@ function initFAQAccordion() {
                     if (otherAnswer) {
                         otherAnswer.style.maxHeight = '0';
                     }
+                    const otherQuestion = otherItem.querySelector('.faq-question');
+                    if (otherQuestion) {
+                        otherQuestion.setAttribute('aria-expanded', 'false');
+                    }
                 }
             });
             
             // Toggle current answer
             if (isOpen) {
                 answer.style.maxHeight = answer.scrollHeight + 'px';
+                question.setAttribute('aria-expanded', 'true');
             } else {
                 answer.style.maxHeight = '0';
+                question.setAttribute('aria-expanded', 'false');
             }
-            
-            question.setAttribute('aria-expanded', isOpen);
         });
     });
     
@@ -276,12 +271,17 @@ function initFormValidation() {
             
             // Validate phone number
             if (field.type === 'tel' && value) {
-                const phoneRegex = /^(\+?254|0)?[71]\d{8}$/;
-                if (!phoneRegex.test(value.replace(/\s/g, ''))) {
+                // Remove spaces, dashes, and parentheses
+                const cleanPhone = value.replace(/[\s\-()]/g, '');
+                
+                // Kenyan mobile: 0XXXXXXXXX or +254XXXXXXXXX or 254XXXXXXXXX
+                const phoneRegex = /^(?:\+?254|0)(?:7|1)\d{8}$/;
+                
+                if (!phoneRegex.test(cleanPhone)) {
                     isValid = false;
                     field.classList.add('error');
                     if (errorElement) {
-                        errorElement.textContent = 'Please enter a valid Kenyan phone number';
+                        errorElement.textContent = 'Please enter a valid Kenyan phone number (e.g., 0712 345 678)';
                         errorElement.style.display = 'block';
                     }
                 }
@@ -302,24 +302,24 @@ function initFormValidation() {
         });
         
         if (isValid) {
-            // Build WhatsApp message
+            // Build WhatsApp message (proper URL encoding)
             const name = formData.get('name') || '';
             const phone = formData.get('phone') || '';
             const location = formData.get('location') || '';
             const service = formData.get('service') || '';
             const description = formData.get('description') || '';
             
-            const message = `Hello Aqua, I need help with a plumbing issue.%0A%0A` +
-                           `Name: ${encodeURIComponent(name)}%0A` +
-                           `Phone: ${encodeURIComponent(phone)}%0A` +
-                           `Location: ${encodeURIComponent(location)}%0A` +
-                           `Service: ${encodeURIComponent(service)}%0A` +
-                           `Description: ${encodeURIComponent(description)}`;
+            const message = `Hello Aqua, I need help with a plumbing issue.\n\n` +
+                           `Name: ${name}\n` +
+                           `Phone: ${phone}\n` +
+                           `Location: ${location}\n` +
+                           `Service: ${service}\n` +
+                           `Description: ${description}`;
             
-            const whatsappUrl = `https://wa.me/254702555093?text=${message}`;
+            const whatsappUrl = `https://wa.me/254702555093?text=${encodeURIComponent(message)}`;
             
             // Redirect to WhatsApp
-            window.open(whatsappUrl, '_blank');
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
             
             // Show success message
             const successMessage = document.createElement('div');
@@ -370,20 +370,29 @@ function initSmoothScroll() {
 }
 
 /**
- * Lazy Loading for Images
+ * Clipboard Copy for Phone Numbers
  */
-document.addEventListener('DOMContentLoaded', function() {
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+function initPhoneCopy() {
+    const phoneElements = document.querySelectorAll('[data-copy-phone]');
     
-    if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports native lazy loading
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
+    phoneElements.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const phoneNumber = this.getAttribute('data-copy-phone');
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(phoneNumber).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                });
+            }
         });
-    } else {
-        // Fallback for older browsers
-        const lazyLoadScript = document.createElement('script');
-        lazyLoadScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-        document.body.appendChild(lazyLoadScript);
-    }
-});
+    });
+}
+
+// Initialize phone copy on load
+document.addEventListener('DOMContentLoaded', initPhoneCopy);
