@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light">
+    <base href="/">
     <meta name="description" content="Boiler installation and repair in Nairobi. Certified specialists for all major brands. Water heater installation from KSh 6,000. WhatsApp 0702 555 093.">
     <meta name="keywords" content="boiler installation Nairobi, water heater repair, solar water heater, instant shower installation">
     <meta name="author" content="Aqua Plumbing Solutions">
@@ -37,7 +38,13 @@
         }
     }
     </script>
-    
+    <script>
+// Redirect if accessed from wrong path
+if (!window.location.pathname.includes('/services/')) {
+    const page = window.location.pathname.split('/').pop();
+    window.location.replace('/services/' + page);
+}
+</script>
     <title>Boiler Installation & Repair Nairobi | Aqua Plumbing</title>
 </head>
 <body>

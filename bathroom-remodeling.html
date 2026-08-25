@@ -38,6 +38,13 @@
         }
     }
     </script>
+<script>
+// Redirect if accessed from wrong path
+if (!window.location.pathname.includes('/services/')) {
+    const page = window.location.pathname.split('/').pop();
+    window.location.replace('/services/' + page);
+}
+</script>
     
     <title>Bathroom Remodeling Nairobi | Aqua Plumbing Solutions</title>
 </head>
