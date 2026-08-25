@@ -11,7 +11,7 @@
 }
 
 :root {
-    /* Premium Color Palette - Fixed */
+    /* Premium Color Palette */
     --color-charcoal: #1A1D20;
     --color-gold: #C8A96A;
     --color-gold-light: #D4B87E;
@@ -135,7 +135,6 @@ p {
     background-clip: text;
 }
 
-/* FIXED: Use literal white to prevent dark mode override */
 .text-light {
     color: #FFFFFF !important;
 }
@@ -220,7 +219,7 @@ a:focus-visible {
     max-width: var(--container-wide);
 }
 
-/* Utility Bar - Premium */
+/* Utility Bar */
 .utility-bar {
     background: linear-gradient(90deg, var(--color-charcoal) 0%, #2d3436 100%);
     color: var(--color-alabaster);
@@ -255,7 +254,7 @@ a:focus-visible {
     border-bottom-color: var(--color-gold);
 }
 
-/* Header - Premium */
+/* Header */
 .site-header {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -281,7 +280,7 @@ a:focus-visible {
     padding-bottom: var(--spacing-sm);
 }
 
-/* Premium Logo */
+/* Logo */
 .logo {
     font-family: var(--font-display);
     font-weight: 700;
@@ -310,7 +309,7 @@ a:focus-visible {
     margin-top: 2px;
 }
 
-/* Navigation - Premium */
+/* Navigation */
 .main-nav {
     display: flex;
     align-items: center;
@@ -358,7 +357,7 @@ a:focus-visible {
     color: var(--color-gold-dark);
 }
 
-/* Dropdown - Premium */
+/* Dropdown */
 .dropdown {
     position: relative;
 }
@@ -430,7 +429,7 @@ a:focus-visible {
     padding-left: calc(var(--spacing-md) + 8px);
 }
 
-/* Buttons - Premium */
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 0.85rem 1.75rem;
@@ -527,7 +526,7 @@ a:focus-visible {
     border-radius: var(--radius-sm);
 }
 
-/* Hero Section - Premium */
+/* Hero Section */
 .hero {
     position: relative;
     min-height: 90vh;
@@ -629,7 +628,7 @@ a:focus-visible {
     gap: 8px;
 }
 
-/* Trust Strip - Premium */
+/* Trust Strip */
 .trust-strip {
     padding: var(--spacing-2xl) 0;
     background: linear-gradient(180deg, var(--color-white) 0%, var(--color-alabaster) 100%);
@@ -702,7 +701,7 @@ a:focus-visible {
     line-height: 1.7;
 }
 
-/* Sections - Premium */
+/* Sections */
 .services-section,
 .process-section,
 .testimonials-section,
@@ -750,7 +749,7 @@ a:focus-visible {
     font-weight: 300;
 }
 
-/* Services Grid - Premium */
+/* Services Grid */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -817,7 +816,7 @@ a:focus-visible {
     margin-top: auto;
 }
 
-/* Process Grid - Premium */
+/* Process Grid */
 .process-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -862,7 +861,7 @@ a:focus-visible {
     line-height: 1.7;
 }
 
-/* Testimonials - Premium */
+/* Testimonials */
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -921,7 +920,7 @@ a:focus-visible {
     margin-top: 2px;
 }
 
-/* Coverage - Premium */
+/* Coverage */
 .coverage-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -968,7 +967,7 @@ a:focus-visible {
     font-size: 1.05rem;
 }
 
-/* Promise Section - Premium */
+/* Promise Section */
 .promise-section {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 100%);
     padding: var(--spacing-2xl) 0;
@@ -1034,7 +1033,7 @@ a:focus-visible {
     margin-right: 8px;
 }
 
-/* Pricing Tiles - Premium */
+/* Pricing Tiles */
 .pricing-tiles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1102,7 +1101,7 @@ a:focus-visible {
     line-height: 1.7;
 }
 
-/* Final CTA - Premium */
+/* Final CTA */
 .final-cta {
     background: linear-gradient(135deg, var(--color-alabaster) 0%, var(--color-white) 100%);
     padding: var(--spacing-2xl) 0;
@@ -1132,7 +1131,7 @@ a:focus-visible {
     font-size: 1rem;
 }
 
-/* Footer - Premium */
+/* Footer */
 .site-footer {
     background: linear-gradient(180deg, var(--color-charcoal) 0%, #0d0f11 100%);
     color: #F8F6F3;
@@ -1215,7 +1214,7 @@ a:focus-visible {
     margin-bottom: 0;
 }
 
-/* Floating WhatsApp Button - Premium */
+/* Floating WhatsApp Button */
 .floating-whatsapp {
     position: fixed;
     bottom: 100px;
@@ -1252,7 +1251,7 @@ a:focus-visible {
     display: inline;
 }
 
-/* Mobile Bottom Bar - Premium */
+/* Mobile Bottom Bar */
 .mobile-bottom-bar {
     display: none;
     position: fixed;
@@ -1297,7 +1296,7 @@ a:focus-visible {
     opacity: 0.9;
 }
 
-/* Animations - Premium */
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1366,7 +1365,7 @@ a:focus-visible {
     animation: fadeIn 1s ease forwards;
 }
 
-/* FAQ - Premium */
+/* FAQ */
 .faq-section {
     padding: var(--spacing-2xl) 0;
     background: var(--color-white);
@@ -1447,7 +1446,7 @@ a:focus-visible {
     line-height: 1.8;
 }
 
-/* Form - Premium */
+/* Form */
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
@@ -1529,7 +1528,7 @@ a:focus-visible {
     margin-top: var(--spacing-md);
 }
 
-/* Legal Pages - Premium */
+/* Legal Pages */
 .legal-hero {
     background: linear-gradient(135deg, var(--color-charcoal) 0%, #2d3436 100%);
     padding: var(--spacing-xl) 0;
@@ -1620,7 +1619,7 @@ a:focus-visible {
     font-weight: 600;
 }
 
-/* Comparison Tables - Premium */
+/* Comparison Tables */
 .comparison-table-wrapper,
 .pricing-table-wrapper {
     overflow-x: auto;
@@ -1672,7 +1671,7 @@ a:focus-visible {
     background: rgba(29, 78, 75, 0.05);
 }
 
-/* Packages - Premium */
+/* Packages */
 .packages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1879,85 +1878,7 @@ a:focus-visible {
     display: block;
     margin-bottom: 4px;
 }
-/* Fix at the end of the file - add these improvements */
 
-/* Hide mobile bottom bar on desktop MORE aggressively */
-@media (min-width: 769px) {
-    .mobile-bottom-bar {
-        display: none !important;
-        visibility: hidden;
-        height: 0;
-        overflow: hidden;
-    }
-}
-
-/* Ensure content is not hidden behind mobile bottom bar */
-@media (max-width: 768px) {
-    body {
-        padding-bottom: 70px; /* Already exists, keep it */
-    }
-}
-
-/* Fix for very small screens - prevent horizontal scroll */
-@media (max-width: 360px) {
-    .container {
-        padding: 0 1rem;
-    }
-    
-    .hero-title {
-        font-size: 1.6rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-}
-
-/* Print styles - hide mobile elements */
-@media print {
-    .mobile-bottom-bar,
-    .floating-whatsapp,
-    .nav-toggle,
-    .hero-cta-group,
-    .final-cta-micro,
-    .form-section {
-        display: none !important;
-    }
-}
-
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* Focus visible states for keyboard users */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-    outline: 3px solid var(--color-gold);
-    outline-offset: 3px;
-    border-radius: 2px;
-}
-
-/* Ensure WhatsApp button doesn't overlap content on mobile */
-@media (max-width: 768px) {
-    .floating-whatsapp {
-        bottom: 80px;
-        right: 12px;
-        width: 48px;
-        height: 48px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-}
 /* Area Detail Section */
 .area-detail.alt-bg {
     background: var(--color-white);
@@ -2156,4 +2077,4 @@ select:focus-visible {
         --color-gold-dark: #8B6914;
         --color-teal: #1A5C58;
     }
-	}
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light">
+    <base href="/">
     <meta name="description" content="Aqua Plumbing Solutions - Nairobi's trusted plumbing team. 90-minute emergency response, certified technicians, 12-month warranty. WhatsApp 0702 555 093 for immediate help.">
     <meta name="keywords" content="plumber Nairobi, emergency plumber, bathroom remodeling Nairobi, water heater repair, leak detection Nairobi">
     <meta name="author" content="Aqua Plumbing Solutions">
@@ -23,16 +24,12 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
     
-    <!-- FIXED: Single preconnect blocks -->
+    <!-- Fonts - Single set, no duplicates -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- FIXED: Absolute paths with canonical base -->
+    <!-- Styles -->
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/responsive.css">
     
@@ -42,7 +39,6 @@
         "@context": "https://schema.org",
         "@type": "Plumber",
         "name": "Aqua Plumbing Solutions",
-        "image": "https://www.aquaplumbing.co.ke/assets/logo.png",
         "telephone": "+254702555093",
         "priceRange": "KSh 1,500 - KSh 1,500,000",
         "address": {
@@ -51,8 +47,7 @@
             "addressCountry": "KE"
         },
         "areaServed": ["Nairobi", "Machakos", "Kajiado"],
-        "openingHours": "Mo-Su 00:00-23:59",
-        "sameAs": []
+        "openingHours": "Mo-Su 00:00-23:59"
     }
     </script>
     
@@ -74,7 +69,6 @@
     <!-- Main Navigation -->
     <header class="site-header" id="site-header" role="banner">
         <div class="container header-inner">
-            <!-- FIXED: Absolute path for logo -->
             <a href="/index.html" class="logo" aria-label="Aqua Plumbing Solutions Home">
                 <span class="logo-aqua">AQUA</span>
                 <span class="logo-plumbing">Plumbing Solutions</span>
@@ -92,11 +86,11 @@
                     <li class="dropdown">
                         <button class="dropdown-toggle" aria-expanded="false">Services <span class="arrow">▾</span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="/services/emergency-plumbing.html">Emergency Plumbing</a></li>
-                            <li><a href="/services/bathroom-remodeling.html">Bathroom Remodeling</a></li>
-                            <li><a href="/services/boiler-installation.html">Boiler Installation</a></li>
-                            <li><a href="/services/water-treatment.html">Water Treatment</a></li>
-                            <li><a href="/services/leak-detection.html">Leak Detection</a></li>
+                            <li><a href="/emergency-plumbing.html">Emergency Plumbing</a></li>
+                            <li><a href="/bathroom-remodeling.html">Bathroom Remodeling</a></li>
+                            <li><a href="/boiler-installation.html">Boiler Installation</a></li>
+                            <li><a href="/water-treatment.html">Water Treatment</a></li>
+                            <li><a href="/leak-detection.html">Leak Detection</a></li>
                         </ul>
                     </li>
                     <li><a href="/why-aqua.html">Why Aqua</a></li>
@@ -176,35 +170,35 @@
                         <div class="service-card-icon" aria-hidden="true">🚨</div>
                         <h3>Water Leaking Right Now?</h3>
                         <p>A burst pipe or major leak can destroy your floors, walls, and furniture in minutes. Don't wait. Message us now. We'll come fast and stop the damage.</p>
-                        <a href="/services/emergency-plumbing.html" class="btn btn-gold btn-sm">Get Emergency Help</a>
+                        <a href="/emergency-plumbing.html" class="btn btn-gold btn-sm">Get Emergency Help</a>
                     </article>
                     
                     <article class="service-card">
                         <div class="service-card-icon" aria-hidden="true">🛁</div>
                         <h3>Dreaming of a New Bathroom?</h3>
                         <p>We turn old, tired bathrooms into beautiful spaces you'll love. We handle everything—plumbing, tiling, fixtures, and finishing. You just enjoy the result.</p>
-                        <a href="/services/bathroom-remodeling.html" class="btn btn-gold btn-sm">Plan Your New Bathroom</a>
+                        <a href="/bathroom-remodeling.html" class="btn btn-gold btn-sm">Plan Your New Bathroom</a>
                     </article>
                     
                     <article class="service-card">
                         <div class="service-card-icon" aria-hidden="true">🔥</div>
                         <h3>No Hot Water?</h3>
                         <p>We install and repair all types of water heaters and boilers. From instant showers to full solar systems. Enjoy consistent hot water without the huge electricity bill.</p>
-                        <a href="/services/boiler-installation.html" class="btn btn-gold btn-sm">Fix My Water Heater</a>
+                        <a href="/boiler-installation.html" class="btn btn-gold btn-sm">Fix My Water Heater</a>
                     </article>
                     
                     <article class="service-card">
                         <div class="service-card-icon" aria-hidden="true">💧</div>
                         <h3>Worried About Your Water?</h3>
                         <p>Hard water? Bad taste? Borehole water that stains your clothes? We install filters and treatment systems so you can drink and bathe with confidence.</p>
-                        <a href="/services/water-treatment.html" class="btn btn-gold btn-sm">Test My Water</a>
+                        <a href="/water-treatment.html" class="btn btn-gold btn-sm">Test My Water</a>
                     </article>
                     
                     <article class="service-card">
                         <div class="service-card-icon" aria-hidden="true">🔍</div>
                         <h3>High Water Bill but No Visible Leak?</h3>
                         <p>There might be a hidden leak inside your walls or floor. We use special equipment to find it without smashing your walls. Save money. Save your home.</p>
-                        <a href="/services/leak-detection.html" class="btn btn-gold btn-sm">Find the Leak</a>
+                        <a href="/leak-detection.html" class="btn btn-gold btn-sm">Find the Leak</a>
                     </article>
                 </div>
             </div>
@@ -383,11 +377,11 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="/services/emergency-plumbing.html">Emergency Plumbing</a></li>
-                        <li><a href="/services/bathroom-remodeling.html">Bathroom Remodeling</a></li>
-                        <li><a href="/services/boiler-installation.html">Boiler Installation</a></li>
-                        <li><a href="/services/water-treatment.html">Water Treatment</a></li>
-                        <li><a href="/services/leak-detection.html">Leak Detection</a></li>
+                        <li><a href="/emergency-plumbing.html">Emergency Plumbing</a></li>
+                        <li><a href="/bathroom-remodeling.html">Bathroom Remodeling</a></li>
+                        <li><a href="/boiler-installation.html">Boiler Installation</a></li>
+                        <li><a href="/water-treatment.html">Water Treatment</a></li>
+                        <li><a href="/leak-detection.html">Leak Detection</a></li>
                     </ul>
                 </div>
                 
@@ -435,7 +429,6 @@
         </a>
     </div>
     
-    <!-- FIXED: Absolute path for JS -->
     <script src="/main.js" defer></script>
 </body>
 </html>

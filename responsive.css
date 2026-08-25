@@ -170,7 +170,7 @@
     }
     
     body {
-        padding-bottom: 70px; /* Space for mobile bottom bar */
+        padding-bottom: 70px;
         font-size: 15px;
     }
     
@@ -614,34 +614,24 @@
     .floating-whatsapp,
     .mobile-bottom-bar,
     .site-header,
-    .site-footer {
+    .site-footer,
+    .hero-cta-group,
+    .final-cta,
+    form {
         display: none !important;
     }
     
     body {
         font-size: 12pt;
         line-height: 1.5;
-        color: #000;
         background: #fff;
+        color: #000;
     }
     
-    .hero,
-    .page-hero {
-        background: #fff !important;
-        color: #000 !important;
-        min-height: auto;
-        padding: 2rem 0;
-    }
-    
-    .hero-title,
-    .hero-subtitle,
-    .hero-eyebrow,
-    .hero-micro-copy {
-        color: #000 !important;
+    h1, h2, h3 {
+        color: #000;
     }
 }
-
-/* Add to the END of responsive.css */
 
 /* Critical fix: Ensure mobile nav works on all small screens */
 @media (max-width: 1024px) {
@@ -696,30 +686,5 @@
     .mobile-bottom-btn {
         padding: 0.8rem 0.5rem;
         font-size: 0.8rem;
-    }
-}
-
-/* Fix: Print styles should hide everything non-essential */
-@media print {
-    .utility-bar,
-    .site-header,
-    .mobile-bottom-bar,
-    .floating-whatsapp,
-    .hero-cta-group,
-    .final-cta,
-    .site-footer,
-    form {
-        display: none !important;
-    }
-    
-    body {
-        font-size: 12pt;
-        line-height: 1.5;
-        background: #fff;
-        color: #000;
-    }
-    
-    h1, h2, h3 {
-        color: #000;
     }
 }

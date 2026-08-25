@@ -1,19 +1,11 @@
 /* ============================================
    AQUA PLUMBING SOLUTIONS - MAIN JAVASCRIPT
    Version: 2.1.0 - Production Ready
-   Fixed: Base URL logic, double initialization
-   Added: Service worker support, caching
    ============================================ */
 
 'use strict';
 
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Initialize Base URL Fix (Critical for Absolute Paths)
-    initBaseUrlFix();
-
-    // Initialize all components
     initNavigation();
     initDropdowns();
     initScrollEffects();
@@ -21,83 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQAccordion();
     initFormValidation();
     initSmoothScroll();
-    // Note: Removed initPhoneCopy() from here - it's called separately below
+    initPhoneCopy();
+    initErrorHandling();
 });
-
-/**
- * CRITICAL FIX: Improve Base URL Fix
- * The previous implementation had flaws:
- * 1. Added <base> tag too late (after CSS was already loaded)
- * 2. Only checked against window.location.origin, which fails on subdirectories
- * 
- * Solution: Update all absolute paths in the DOM to be relative-based
- * This avoids the <base> tag race condition entirely
- */
-function initBaseUrlFix() {
-    // Determine the base path from the current script location
-    const scripts = document.getElementsByTagName('script');
-    const currentScript = scripts[scripts.length - 1];
-    const scriptPath = currentScript.src;
-    
-    // Extract the base URL (everything up to the last forward slash)
-    const basePath = scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
-    
-    // If we're not at the root domain, we need to fix relative paths
-    const isRootDomain = window.location.origin + '/' === basePath;
-    
-    if (!isRootDomain) {
-        // Instead of adding a <base> tag (which is too late for CSS),
-        // we'll dynamically update all resource references
-        fixResourcePaths(basePath);
-    }
-    
-    // Also handle the case where the script is in /js/main.js
-    // and CSS is in /style.css - we need to go up one directory
-    if (scriptPath.includes('/js/') || scriptPath.includes('/scripts/')) {
-        const parentPath = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
-        const correctedPath = parentPath.substring(0, parentPath.lastIndexOf('/') + 1);
-        fixResourcePaths(correctedPath);
-    }
-}
-
-/**
- * Fix resource paths in the DOM
- * This is more robust than using <base> tag
- * because it works regardless of when it's called
- */
-function fixResourcePaths(basePath) {
-    // Fix stylesheet links
-    document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('/')) {
-            link.href = basePath + href.substring(1);
-        }
-    });
-    
-    // Fix script tags
-    document.querySelectorAll('script[src]').forEach(script => {
-        const src = script.getAttribute('src');
-        if (src && src.startsWith('/')) {
-            script.src = basePath + src.substring(1);
-        }
-    });
-    
-    // Fix image sources
-    document.querySelectorAll('img[src]').forEach(img => {
-        const src = img.getAttribute('src');
-        if (src && src.startsWith('/')) {
-            img.src = basePath + src.substring(1);
-        }
-    });
-    
-    // Fix anchor hrefs that are internal links
-    document.querySelectorAll('a[href^="/"]').forEach(anchor => {
-        const href = anchor.getAttribute('href');
-        if (href && !href.startsWith('//')) { // Don't break protocol-relative URLs
-            anchor.href = basePath + href.substring(1);
-        }
-    });
-}
 
 /**
  * Mobile Navigation Toggle
@@ -447,8 +365,7 @@ function initSmoothScroll() {
 }
 
 /**
- * Clipboard Copy for Phone Numbers
- * FIXED: Called only ONCE via its own listener
+ * Phone Copy Functionality
  */
 function initPhoneCopy() {
     const phoneElements = document.querySelectorAll('[data-copy-phone]');
@@ -472,9 +389,6 @@ function initPhoneCopy() {
     });
 }
 
-// Initialize phone copy on DOMContentLoaded (called ONLY here)
-document.addEventListener('DOMContentLoaded', initPhoneCopy);
-
 /**
  * Error Handling for Failed Resource Loads
  */
@@ -485,25 +399,3 @@ function initErrorHandling() {
         }
     }, true);
 }
-
-// Initialize error handling
-document.addEventListener('DOMContentLoaded', initErrorHandling);
-
-/**
- * Service Worker Registration (for offline support)
- * This is a progressive enhancement - the site works without it
- */
-function initServiceWorker() {
-    if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('Service Worker registered:', registration.scope);
-            })
-            .catch(error => {
-                console.log('Service Worker registration failed:', error);
-            });
-    }
-}
-
-// Note: Service worker is commented out for now - requires sw.js file
-// document.addEventListener('DOMContentLoaded', initServiceWorker);
