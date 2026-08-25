@@ -2048,3 +2048,133 @@ a:focus-visible {
         --color-teal: #1A5C58;
     }
 }
+/* ========== URGENCY BANNER ========== */
+.urgency-banner {
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+    color: #FFFFFF;
+    padding: 0.6rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-gold);
+}
+
+.urgency-banner-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.urgency-banner a {
+    color: #FFD700;
+    font-weight: 700;
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.urgency-banner a:hover {
+    color: #FFFFFF;
+}
+
+/* ========== HERO BADGES ========== */
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    backdrop-filter: blur(10px);
+}
+
+.hero-response-time {
+    color: var(--color-gold-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: var(--spacing-xs);
+}
+
+/* ========== PRICING GUARANTEE ========== */
+.pricing-guarantee {
+    text-align: center;
+    color: var(--color-teal);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(29, 78, 75, 0.05);
+    border-radius: var(--radius-md);
+    display: inline-block;
+    width: 100%;
+}
+
+/* ========== COMMERCIAL BENEFITS ========== */
+.commercial-benefits {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: left;
+}
+
+/* ========== MAINTENANCE SECTION ========== */
+.maintenance-section {
+    background: var(--color-teal);
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.maintenance-section .section-heading.text-light {
+    color: #FFFFFF !important;
+}
+
+.maintenance-section .promise-intro {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.maintenance-benefits {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+    text-align: left;
+}
+
+/* ========== MOBILE ADJUSTMENTS ========== */
+@media (max-width: 768px) {
+    .urgency-banner {
+        font-size: 0.8rem;
+        padding: 0.5rem 0;
+    }
+    
+    .hero-badges {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .hero-badge {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.85rem;
+    }
+    
+    .pricing-guarantee {
+        font-size: 0.95rem;
+    }
+}
