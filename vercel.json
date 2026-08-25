@@ -2,6 +2,16 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/services/emergency-plumbing", "destination": "/emergency-plumbing.html" },
+    { "source": "/services/emergency-plumbing.html", "destination": "/emergency-plumbing.html" },
+    { "source": "/services/bathroom-remodeling", "destination": "/bathroom-remodeling.html" },
+    { "source": "/services/bathroom-remodeling.html", "destination": "/bathroom-remodeling.html" },
+    { "source": "/services/boiler-installation", "destination": "/boiler-installation.html" },
+    { "source": "/services/boiler-installation.html", "destination": "/boiler-installation.html" },
+    { "source": "/services/water-treatment", "destination": "/water-treatment.html" },
+    { "source": "/services/water-treatment.html", "destination": "/water-treatment.html" },
+    { "source": "/services/leak-detection", "destination": "/leak-detection.html" },
+    { "source": "/services/leak-detection.html", "destination": "/leak-detection.html" },
     { "source": "/why-aqua", "destination": "/why-aqua.html" },
     { "source": "/why-aqua.html", "destination": "/why-aqua.html" }
   ],
