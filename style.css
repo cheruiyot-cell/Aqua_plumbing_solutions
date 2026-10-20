@@ -3377,3 +3377,15 @@ button:focus-visible,
 .nav-list a[aria-current="page"]::after {
     width: 100%;
 }
+/* ============================================================
+   DISABLE FLOATING WHATSAPP BUTTON
+   Overrides the v5.3 re-enable in Part 34.
+   All other WhatsApp CTAs (header, hero, sections, mobile bar)
+   remain fully functional.
+   ============================================================ */
+.floating-whatsapp {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
