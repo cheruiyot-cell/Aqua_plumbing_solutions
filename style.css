@@ -3212,3 +3212,168 @@ section:has(h2.text-light) p {
         text-decoration: underline;
     }
 }
+
+/* ============================================================
+   PART 34: v5.3 IMPROVEMENTS — POST-AUDIT FIXES
+   Applied below all previous sections to guarantee cascade
+   priority. Each block is labelled with the audit Issue ID.
+   ============================================================ */
+
+/* ---- Issue #13: Anchor scroll offset for sticky header ---- */
+html {
+    scroll-padding-top: 100px;
+}
+
+/* ---- Issue #16: Visible focus on all interactive elements ---- */
+.btn:focus-visible,
+button:focus-visible,
+.faq-question:focus-visible,
+.dropdown-toggle:focus-visible,
+.nav-toggle:focus-visible,
+.mobile-bottom-btn:focus-visible,
+.floating-whatsapp:focus-visible {
+    outline: 3px solid var(--color-accent-light);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(77, 166, 255, 0.35);
+    border-radius: var(--radius-md);
+}
+
+/* ---- Issue #08: Reliable aria-live error announcements ---- */
+.form-error {
+    display: block;
+    min-height: 1.25em;
+    color: var(--color-emergency);
+    font-size: 0.85rem;
+    margin-top: 4px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+.form-error:not(:empty) {
+    opacity: 1;
+}
+
+.form-success {
+    background: rgba(0, 168, 107, 0.08);
+    border: 2px solid var(--color-success);
+    color: var(--color-primary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+.form-success p {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+.form-success p:last-of-type {
+    margin-bottom: 0;
+}
+.form-success .btn {
+    margin-top: var(--spacing-sm);
+}
+.form-success .btn:focus-visible {
+    outline: 3px solid var(--color-accent-light);
+    outline-offset: 3px;
+}
+
+/* ---- Issue #10: Hero utility classes (replace inline styles) ---- */
+.hero-compact {
+    min-height: 70vh;
+    padding: var(--spacing-2xl) 0;
+}
+
+/* ---- Mobile viewport height — use svh where supported ---- */
+@supports (min-height: 100svh) {
+    .hero { min-height: 90svh; }
+    .hero-with-image,
+    .page-hero { min-height: 80svh; }
+    .hero-compact { min-height: 70svh; }
+    .legal-hero { min-height: 60svh !important; }
+}
+
+/* ---- Issue #15: Mobile body text floor of 15px ---- */
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    .hero-title {
+        font-size: clamp(1.85rem, 7vw, 2.5rem);
+    }
+    .page-hero .hero-title {
+        font-size: clamp(1.85rem, 7vw, 2.5rem);
+    }
+}
+
+/* ---- Re-enable floating WhatsApp on desktop with scroll reveal ---- */
+.floating-whatsapp {
+    display: flex !important;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #FFFFFF !important;
+    padding: 14px 20px;
+    border-radius: var(--radius-full);
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+    z-index: var(--z-floating);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), opacity var(--transition-base);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+.floating-whatsapp.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.floating-whatsapp:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.55);
+    color: #FFFFFF !important;
+}
+.floating-whatsapp svg {
+    flex-shrink: 0;
+}
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        bottom: 80px;
+        right: 16px;
+        padding: 12px;
+        border-radius: var(--radius-full);
+        width: 56px;
+        height: 56px;
+        justify-content: center;
+    }
+    .floating-whatsapp span {
+        display: none;
+    }
+}
+
+/* ---- Hero secondary CTA: tap-to-call link ---- */
+.hero-tel-link {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    color: var(--color-accent-lighter, #B3D9FF) !important;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+.hero-tel-link:hover {
+    color: #FFFFFF !important;
+}
+
+/* ---- Nav: aria-current styling (matches .active) ---- */
+.nav-list a[aria-current="page"] {
+    color: var(--color-accent);
+}
+.nav-list a[aria-current="page"]::after {
+    width: 100%;
+}

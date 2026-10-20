@@ -1,0 +1,137 @@
+/* ============================================================
+   AQUA PLUMBING SOLUTIONS — NOSCRIPT FALLBACK STYLESHEET
+   Version: 1.0.0
+   Loaded ONLY when JavaScript is disabled.
+   Purpose: Ensure the mobile navigation is fully usable without JS.
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .nav-toggle {
+        display: none !important;
+    }
+
+    .header-inner {
+        flex-wrap: wrap;
+    }
+
+    .main-nav {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .nav-list {
+        display: flex !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        padding: 0.5rem 0 !important;
+        margin: 0.5rem 0 0 !important;
+        background: var(--color-white, #FFFFFF) !important;
+        border-top: 1px solid var(--color-light-grey, #E5E8EB) !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        z-index: auto !important;
+        gap: 0 !important;
+        pointer-events: auto !important;
+    }
+
+    .nav-list > li {
+        width: 100% !important;
+        border-bottom: 1px solid var(--color-light-grey, #E5E8EB) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .nav-list > li:last-child {
+        border-bottom: none !important;
+    }
+
+    .nav-list a {
+        display: block !important;
+        width: 100% !important;
+        padding: 12px 8px !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        color: var(--color-primary, #0F2A3D) !important;
+        text-decoration: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: transparent !important;
+    }
+
+    .nav-list a::after {
+        display: none !important;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+        color: var(--color-accent, #0066CC) !important;
+        padding-left: 8px !important;
+    }
+
+    .dropdown {
+        width: 100% !important;
+    }
+
+    .dropdown-toggle {
+        pointer-events: none !important;
+        cursor: default !important;
+        width: 100% !important;
+        padding: 12px 8px !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        color: var(--color-primary, #0F2A3D) !important;
+        background: none !important;
+        border: none !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+    }
+
+    .dropdown-menu {
+        position: static !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 0 0 8px 16px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .dropdown-menu a {
+        padding: 10px 8px !important;
+        font-size: 0.95rem !important;
+        color: var(--color-medium-grey, #4B5563) !important;
+    }
+
+    .btn-nav-cta {
+        display: inline-block !important;
+        margin-top: 12px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .site-header {
+        position: relative !important;
+    }
+
+    body {
+        padding-bottom: 70px;
+    }
+}
+
+.floating-whatsapp {
+    display: none !important;
+}
